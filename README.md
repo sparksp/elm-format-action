@@ -18,17 +18,17 @@ Click the `Use this Template` and provide the new repo details for your action
 
 Install the dependencies  
 ```bash
-$ npm install
+$ yarn
 ```
 
 Build the typescript and package it for distribution
 ```bash
-$ npm run build && npm run pack
+$ yarn run build && yarn run pack
 ```
 
 Run the tests :heavy_check_mark:  
 ```bash
-$ npm test
+$ yarn test
 
  PASS  ./index.test.js
   ✓ throws invalid number (3ms)
@@ -74,7 +74,7 @@ Actions are run from GitHub repos so we will checkin the packed dist folder.
 
 Then run [ncc](https://github.com/zeit/ncc) and push the results:
 ```bash
-$ npm run pack
+$ yarn run pack
 $ git add dist
 $ git commit -a -m "prod dependencies"
 $ git push origin releases/v1
