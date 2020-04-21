@@ -15,8 +15,15 @@ jobs:
     - run: yarn run all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: [Good.elm]
     steps:
     - uses: actions/checkout@v2
+    - run: yarn
+    - id: elm-format-bin
+      run: echo ::set-output name=path::$(yarn bin elm-format)
     - uses: ./
       with: 
-        milliseconds: 1000
+        elm_format: ${{steps.elm-format-bin.outputs.path}}
+        elm_files: __tests__/elm/${{ matrix.file }}
