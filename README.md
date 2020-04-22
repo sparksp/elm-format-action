@@ -12,7 +12,7 @@ jobs:
     - run: yarn
     - name: Add elm-format to path
       run: echo ::add-path::$(yarn bin)
-    - uses: sparksp/elm-format-action
+    - uses: sparksp/elm-format-action@v1
       with: 
         # elm_format: elm-format
         # elm_files: src/
@@ -24,7 +24,7 @@ jobs:
 To match multiple files or directories, list each on a new line...
 
 ```yaml
-    - uses: sparksp/elm-format-action
+    - uses: sparksp/elm-format-action@v1
       with: 
         elm_files: |
           src/Main.elm
@@ -37,7 +37,7 @@ To match multiple files or directories, list each on a new line...
 This action supports file globs using [@actions/glob].  elm-format will process each file or directory it is given, so take care to match only elm files OR directories with your globs.
 
 ```yaml
-    - uses: sparksp/elm-format-action
+    - uses: sparksp/elm-format-action@v1
       with: 
         # Match all elm files except any TW.elm
         elm_files: |
