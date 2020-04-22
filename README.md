@@ -1,6 +1,13 @@
 [![elm-format-action status](https://github.com/sparksp/elm-format-action/workflows/build-test/badge.svg)](https://github.com/sparksp/elm-format-action/actions)
 
-# Elm Format Action for GitHub Workflows
+# elm-format --validate
+
+Validate your [Elm] files using [elm-format] - any unformatted files will cause the check to fail and a note will be added to each failing file.
+
+[Elm]: https://elm-lang.org/
+[elm-format]: https://github.com/avh4/elm-format
+
+## Finding elm-format
 
 You must have `elm-format` available in your build, here is an example where elm-format is in `package.json`.
 
