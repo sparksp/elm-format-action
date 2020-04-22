@@ -12,10 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: yarn
-    - id: elm-format-bin
-      run: echo ::set-output name=path::$(yarn bin elm-format)
+    - name: Add elm-format to path
+      run: echo ::add-path::$(yarn bin)
     - uses: sparksp/elm-format-action
       with: 
-        elm_format: ${{steps.elm-format-bin.outputs.path}}
+        # elm_format: elm-format
         # elm_files: src/
 ```
