@@ -4,14 +4,18 @@
 
 # Elm Format Action for GitHub Workflows
 
-You must have `elm-format` available in your build
+You must have `elm-format` available in your build, here is an example where elm-format is in `package.json`.
 
 ```yaml
-steps:
-- uses: actions/checkout@v2
-- run: npm install -g elm-format
-- uses: sparksp/elm-format-action
-  with: 
-    # elm_format: elm-format
-    # elm_files: src/
+jobs:
+  lint:
+    steps:
+    - uses: actions/checkout@v2
+    - run: yarn
+    - id: elm-format-bin
+      run: echo ::set-output name=path::$(yarn bin elm-format)
+    - uses: sparksp/elm-format-action
+      with: 
+        elm_format: ${{steps.elm-format-bin.outputs.path}}
+        # elm_files: src/
 ```
