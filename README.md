@@ -13,5 +13,5 @@ steps:
 - uses: sparksp/elm-format-action
   with: 
     # elm_format: elm-format
-    # files: src/
+    # elm_files: src/
 ```
