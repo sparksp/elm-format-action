@@ -1,6 +1,4 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
+[![elm-format-action status](https://github.com/sparksp/elm-format-action/workflows/build-test/badge.svg)](https://github.com/sparksp/elm-format-action/actions)
 
 # Elm Format Action for GitHub Workflows
 
