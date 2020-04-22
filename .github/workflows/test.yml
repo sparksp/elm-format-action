@@ -15,9 +15,6 @@ jobs:
     - run: yarn run all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        file: [Good.elm]
     steps:
     - uses: actions/checkout@v2
     - run: yarn
@@ -26,4 +23,10 @@ jobs:
     - uses: ./
       with: 
         # elm_format: elm-format
-        elm_files: __tests__/elm/${{ matrix.file }}
+        elm_files: __tests__/elm/Good.elm
+    - uses: ./
+      with: # make sure that globbing works
+        elm_glob: true
+        elm_files: |
+          __tests__/**/*.elm
+          !**/Bad.elm
