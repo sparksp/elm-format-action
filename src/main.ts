@@ -1,4 +1,5 @@
 import * as core from '@actions/core'
+import * as glob from '@actions/glob'
 import * as exec from '@actions/exec'
 import {issueCommand} from '@actions/core/lib/command'
 
@@ -8,6 +9,16 @@ const elmFormatCmd = core.getInput('elm_format', {
 const elmFiles = core.getInput('elm_files', {
   required: true
 })
+const shouldGlob = core.getInput('elm_glob').toUpperCase() === 'TRUE'
+
+const globFiles = async (pattern: string): Promise<string[]> => {
+  if (shouldGlob) {
+    const globber = await glob.create(elmFiles)
+    return globber.glob()
+  } else {
+    return pattern.split('\n')
+  }
+}
 
 const runElmFormat = async (): Promise<Report> => {
   let output = ''
@@ -26,7 +37,12 @@ const runElmFormat = async (): Promise<Report> => {
     silent: true
   }
 
-  await exec.exec(elmFormatCmd, [elmFiles, '--validate'], options)
+  const files = await globFiles(elmFiles)
+  if (files.length === 0) {
+    throw Error('No Elm files found, please check your ELM_FILES')
+  }
+
+  await exec.exec(elmFormatCmd, [...files, '--validate'], options)
 
   if (errput.length > 0) {
     throw Error(errput)
