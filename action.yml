@@ -1,10 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'elm-format'
+description: 'Check your Elm code with elm-format'
+author: 'Phill Sparks'
+branding:
+  icon: check-circle
+  color: orange
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  elm_format:
+    description: 'Your elm-format command'
+    default: 'elm-format'
+  elm_files:
+    description: 'List of Elm files you wish to validate'
+    default: 'src/'
 runs:
   using: 'node12'
   main: 'dist/index.js'
