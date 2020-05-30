@@ -1,8 +1,7 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
-  "private": true,
-  "description": "TypeScript template action",
+  "name": "elm-format-action",
+  "version": "1.0.0",
+  "description": "Validate Elm code is formatted correctly",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -13,16 +12,19 @@
     "test": "jest",
     "all": "run-s build format lint pack test"
   },
+  "homepage": "https://github.com/sparksp/elm-format-action#readme",
+  "bugs": {
+    "url": "https://github.com/sparksp/elm-format-action/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/sparksp/elm-format-action.git"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "elm-format"
   ],
-  "author": "YourNameOrOrganization",
+  "author": "Phill Sparks <me@phills.me.uk> (https://github.com/sparksp)",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.0",
