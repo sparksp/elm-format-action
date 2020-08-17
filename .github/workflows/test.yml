@@ -23,10 +23,12 @@ jobs:
     - uses: ./
       with: 
         # elm_format: elm-format
-        elm_files: __tests__/elm/Good.elm
+        elm_files: Good.elm
+        working-directory: ${{ github.workspace }}/__tests__/elm
     - uses: ./
       with: # make sure that globbing works
         elm_glob: true
         elm_files: |
-          __tests__/**/*.elm
+          **/*.elm
           !**/Bad.elm
+        working-directory: ${{ github.workspace }}/__tests__/elm

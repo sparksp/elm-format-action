@@ -10,6 +10,7 @@ const elmFiles = core.getInput('elm_files', {
   required: true
 })
 const shouldGlob = core.getInput('elm_glob').toUpperCase() === 'TRUE'
+const workingDirectory = core.getInput('working-directory')
 
 const globFiles = async (pattern: string): Promise<string[]> => {
   if (shouldGlob) {
@@ -25,6 +26,7 @@ const runElmFormat = async (): Promise<Report> => {
   let errput = ''
 
   const options = {
+    cwd: workingDirectory,
     ignoreReturnCode: true,
     listeners: {
       stdout: (data: Buffer) => {
