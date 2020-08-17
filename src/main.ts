@@ -81,7 +81,8 @@ const reportFailure = (reported: number): void => {
 
 async function run(): Promise<void> {
   try {
-    await runElmFormat().then(issueErrors).then(reportFailure)
+    const report = await runElmFormat()
+    reportFailure(issueErrors(report))
   } catch (error) {
     core.setFailed(error.message)
   }
