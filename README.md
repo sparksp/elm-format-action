@@ -24,6 +24,7 @@ jobs:
         # elm_format: elm-format
         # elm_files: src/
         # elm_glob: false
+        # working-directory: ./
 ```
 
 ## Multiple Files
