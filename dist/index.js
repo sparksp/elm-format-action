@@ -1994,7 +1994,8 @@ const reportFailure = (reported) => {
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield runElmFormat().then(issueErrors).then(reportFailure);
+            const report = yield runElmFormat();
+            reportFailure(issueErrors(report));
         }
         catch (error) {
             core.setFailed(error.message);
