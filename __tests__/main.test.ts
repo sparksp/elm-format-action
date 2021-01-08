@@ -36,7 +36,7 @@ test('reports errors', () => {
   }
   expect(status).toBe(1)
   expect(stdout.toString()).toBe(
-    '::error file=__tests__/elm/Bad.elm::File is not formatted with elm-format-0.8.3 --elm-version=0.19\n' +
+    '::error file=__tests__/elm/Bad.elm::File is not formatted with elm-format-0.8.4 --elm-version=0.19\n' +
       '::error::elm-format reported errors with 1 file\n'
   )
 })
