@@ -8,12 +8,19 @@ inputs:
   elm_format:
     description: 'Your elm-format command'
     default: 'elm-format'
+    required: true
   elm_files:
     description: 'List of Elm files you wish to validate'
     default: 'src/'
+    required: true
   elm_glob:
     description: 'Is elm_files a glob?'
     default: 'false'
+    required: true
+  'working-directory':
+    description: 'Change to working directory before running elm-format'
+    default: './'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
