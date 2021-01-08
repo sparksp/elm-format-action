@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: yarn
     - name: Add elm-format to path
-      run: echo ::add-path::$(yarn bin)
+      run: yarn bin >> $GITHUB_PATH
     - uses: sparksp/elm-format-action@v1
       with: 
         # elm_format: elm-format
