@@ -84,7 +84,7 @@ async function run(): Promise<void> {
     const report = await runElmFormat()
     reportFailure(issueErrors(report))
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed((error as Error).message)
   }
 }
 

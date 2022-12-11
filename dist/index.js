@@ -2676,7 +2676,11 @@ exports.checkBypass = checkBypass;
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -2753,7 +2757,7 @@ const runElmFormat = () => __awaiter(void 0, void 0, void 0, function* () {
 const issueErrors = (report) => {
     let reported = 0;
     for (const message of report) {
-        command_1.issueCommand('error', { file: message.path }, message.message);
+        (0, command_1.issueCommand)('error', { file: message.path }, message.message);
         reported++;
     }
     return reported;
